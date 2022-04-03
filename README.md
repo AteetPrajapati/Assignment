@@ -1,7 +1,7 @@
 
 # Giphy Search Built With Vue 2
 
-![Screenshot](screenshot.png)
+![Screenshot](Screenshot 2022-04-03 143517.jpg)
 Screenshot
 
 ## About
@@ -14,7 +14,7 @@ Little touches were added such as the custom-styled scroll bars and the ability 
 
 Gif display is limited to 12 results and is mobile friendly.
 
-LIVE DEMO (hosted on Netlify): https://giphy-search-94c768.netlify.app/
+<!-- LIVE DEMO (hosted on Netlify): https://giphy-search-94c768.netlify.app/ -->
 
 ## Tech Stack
 
@@ -26,27 +26,26 @@ ES-Lint.
 ## Project setup
 
 ```
-yarn install
+npm install
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-yarn serve
+npm run serve
 ```
 
 ### Compiles and minifies for production
 
 ```
-yarn build
+npm run build
 ```
 
 ### Lints and fixes files
 
 ```
-yarn lint
 ```
 
 ### Customize configuration
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<!-- See [Configuration Reference](https://cli.vuejs.org/config/). -->
