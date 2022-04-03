@@ -1,12 +1,12 @@
 <template #app>
-  <div class="postView">
+  <div class="container" style="padding-top: 50px">
     <gif-search
+      v-if="render"
       @onpost="getmessage"
-      class="b-card"
       @fetch-gifs="onFetch"
       @removeSelction="removeSelction"
     />
-    <gif-list :gifs="gifs" ref="listofGif" />
+    <gif-list v-if="render" :gifs="gifs" ref="listofGif" />
     <postList :images="posts" />
   </div>
 </template>
@@ -24,6 +24,7 @@ export default {
     return {
       gifs: [],
       posts: [],
+      render: true,
     };
   },
   methods: {
@@ -33,6 +34,12 @@ export default {
         imgsrc: this.$refs["listofGif"]._data.selectedGiphy,
       });
       console.log(e, this.$refs["listofGif"]._data.selectedGiphy);
+      this.removeSelction();
+      this.render = false;
+      this.gifs = [];
+      setTimeout(() => {
+        this.render = true;
+      }, 500);
     },
     removeSelction() {
       console.log(this.$refs["listofGif"]._data.selectedGiphy);
@@ -47,42 +54,4 @@ export default {
 
 <style lang="scss">
 @import "./assets/constants.scss";
-
-#app {
-  color: $primary-font-color;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;
-
-  ::selection {
-    background: $green-light;
-  }
-}
-
-/* * * * * * */
-/* Styled scroll bars */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 6px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $green;
-  border-radius: 50vh;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: $green-light;
-}
-
-/* * * * * * */
 </style>

@@ -1,8 +1,19 @@
 <template #app>
-  <div class="postView">
-    <div v-for="(e, i) in images" :key="i">
-      <p>{{ e.msg }}</p>
-      <img :src="e.imgsrc" />
+  <div class="row">
+    <div
+      v-for="(e, i) in images"
+      :key="i"
+      class="col-5 card m-3 center w-100 mx-auto"
+      aria-current="true"
+    >
+      <div class="w-100">
+        <h5 class="mb-1 text-center">{{ e.msg }}</h5>
+        <img
+          :src="e.imgsrc"
+          class="rounded mx-auto d-block my-2"
+          style="height: 400px; width: 400px"
+        />
+      </div>
     </div>
   </div>
 </template>

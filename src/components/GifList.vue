@@ -1,20 +1,28 @@
 <template>
-  <div>
-    <div
-      style="display: flex; flex-direction: column; height: 500px; width: 500px"
-      v-if="selectedGiphy"
-    >
-      <button @click="remove" style="">Remove</button>
-      <img :src="selectedGiphy" />
+  <div class="row">
+    <div class="col">
+      <figure class="figure" v-if="selectedGiphy">
+        <img class="figure-img img-fluid rounded" :src="selectedGiphy" />
+        <figcaption class="figure-caption">
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="remove"
+            style=""
+          >
+            Remove
+          </button>
+        </figcaption>
+      </figure>
+      <div class="row" v-else>
+        <gif-display
+          v-for="gif in gifs"
+          :key="gif.id"
+          :gif="gif"
+          @onSelct="slected"
+        />
+      </div>
     </div>
-    <section v-else>
-      <gif-display
-        v-for="gif in gifs"
-        :key="gif.id"
-        :gif="gif"
-        @onSelct="slected"
-      />
-    </section>
   </div>
 </template>
 
@@ -43,28 +51,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/constants.scss";
-
-section {
-  align-items: flex-start;
-  border-bottom: $border-purple;
-  border-top: $border-purple;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-
-  figure {
-    width: 40%;
-  }
-}
-
-@media (min-width: $screen-break-large) {
-  section {
-    figure {
-      width: 20%;
-    }
-  }
-}
 </style>
